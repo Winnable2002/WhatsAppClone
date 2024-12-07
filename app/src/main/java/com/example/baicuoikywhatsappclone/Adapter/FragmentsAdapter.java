@@ -11,6 +11,7 @@ import com.example.baicuoikywhatsappclone.Fragments.ChatsFragment;
 import com.example.baicuoikywhatsappclone.Fragments.StatusFragment;
 
 public class FragmentsAdapter extends FragmentStatePagerAdapter {
+
     public FragmentsAdapter(@NonNull FragmentManager fm) {
         super(fm);
     }
@@ -18,39 +19,35 @@ public class FragmentsAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
-            case 0: return new ChatsFragment();
-            case 1: return new CallsFragment();
-            case 2: return new StatusFragment();
-            default: return new ChatsFragment();
+        switch (position) {
+            case 0:
+                return new ChatsFragment();
+            case 1:
+                return new CallsFragment();
+            case 2:
+                return new StatusFragment();
+            default:
+                return new ChatsFragment(); // Mặc định trả về ChatsFragment
         }
-
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 3; // Tổng số tab
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-
-        String title=null;
-        if(position==0)
-        {
-            title="CHAT";
+        switch (position) {
+            case 0:
+                return "Chats"; // Tên tab cho fragment chat
+            case 1:
+                return "Calls"; // Tên tab cho fragment gọi
+            case 2:
+                return "Status"; // Tên tab cho fragment trạng thái
+            default:
+                return null;
         }
-        if(position==1)
-        {
-            title="CallFragments";
-        }
-        if(position==2)
-        {
-            title="CHAT";
-        }
-
-        return title;
     }
 }

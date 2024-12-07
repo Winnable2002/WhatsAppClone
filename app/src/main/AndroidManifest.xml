@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.baicuoikywhatsappclone">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- Quyền truy cập Internet (Cần thiết cho FCM và Firebase) -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- Quyền Wake Lock (Giúp đảm bảo nhận thông báo khi thiết bị ngủ) -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -14,34 +15,43 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BaiCuoiKyWhatsAppClone"
         tools:targetApi="31">
-
+        <activity
+            android:name=".SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GroupChatActivity"
+            android:exported="false" /> <!-- Đăng ký FirebaseMessagingService để nhận thông báo -->
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service> <!-- Các Activity của ứng dụng -->
         <activity
             android:name=".ChatDetailActivity"
             android:exported="true" />
-
         <activity
             android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
-
+            android:exported="true" /> <!-- Thêm các thông tin của Facebook SDK nếu bạn sử dụng -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
-
     </application>
+
 </manifest>

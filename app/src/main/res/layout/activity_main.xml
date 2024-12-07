@@ -16,6 +16,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         app:titleTextColor="@android:color/white"
+        app:title="BMApp"
         android:elevation="4dp" />
 
     <!-- TabLayout -->

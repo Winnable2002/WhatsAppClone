@@ -61,6 +61,15 @@ public class SignInActivity extends AppCompatActivity {
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Please wait\nValidation in Progress.");
 
+        // Kiểm tra xem người dùng đã đăng nhập chưa
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            // Nếu đã đăng nhập, chuyển hướng đến MainActivity
+            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+            finish();
+            return;  // Dừng lại không cần xử lý tiếp
+        }
+
         // Thiết lập Google Sign-In mà không signOut ngay lập tức
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))  // ID khách hàng của Firebase

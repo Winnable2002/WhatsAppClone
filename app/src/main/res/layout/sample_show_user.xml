@@ -19,11 +19,11 @@
 
     <!-- LinearLayout con cho các TextView -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="199dp"
         android:layout_height="match_parent"
         android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <!-- TextView cho tên người dùng -->
         <TextView
@@ -36,13 +36,22 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/lastMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/lastMessage"
-            android:text="Last message"
             android:paddingTop="2dp"
-            android:paddingBottom="2dp" />
+            android:paddingBottom="2dp"
+            android:text="Last message" />
 
     </LinearLayout>
 
+    <!-- TextView cho thời gian -->
+    <TextView
+        android:id="@+id/messageTime"
+        android:layout_width="wrap_content"
+        android:layout_height="94dp"
+        android:gravity="center_vertical"
+        android:text="12/06/2024"
+        android:textColor="@color/black"
+        android:textSize="14sp" />
 </LinearLayout>

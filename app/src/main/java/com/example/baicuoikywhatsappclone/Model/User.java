@@ -2,15 +2,17 @@ package com.example.baicuoikywhatsappclone.Model;
 
 public class User {
 
-    String profilePic, Username, mail, password, UserID, lastMessage, status;
+    String profilePic = ""; // Đặt giá trị mặc định là chuỗi trống
+    String Username, mail, password, UserID, lastMessage, status;
+    String fcmToken;
 
-    public User()
-    {
-
+    // Constructor mặc định
+    public User() {
     }
 
+    // Constructor đầy đủ thông tin
     public User(String profilePic, String username, String mail, String password, String userID, String lastMessage, String status) {
-        this.profilePic = profilePic;
+        this.profilePic = profilePic != null ? profilePic : ""; // Nếu null thì gán chuỗi trống
         Username = username;
         this.mail = mail;
         this.password = password;
@@ -19,13 +21,14 @@ public class User {
         this.status = status;
     }
 
+    // Constructor rút gọn
     public User(String username, String mail, String password) {
         Username = username;
         this.mail = mail;
         this.password = password;
     }
 
-
+    // Getter và Setter
     public String getProfilePic() {
         return profilePic;
     }
@@ -80,5 +83,13 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getFcmToken() {
+        return fcmToken;
+    }
+
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
     }
 }

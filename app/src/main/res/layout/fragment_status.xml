@@ -1,18 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
     tools:context=".Fragments.StatusFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="StatusFragments"
-        android:gravity="center"
-        android:textSize="35dp"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+<RelativeLayout
+android:layout_width="wrap_content"
+android:layout_height="wrap_content">
 
-</FrameLayout>
+<!-- CircleImageView cho ảnh đại diện -->
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="5dp"
+        android:padding="5dp"
+        android:src="@drawable/avatar3" />
+
+    <ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:layout_alignBottom="@id/profile_image"
+    android:layout_alignEnd="@id/profile_image"
+    android:src="@drawable/baseline_add_circle_outline_24"
+    app:tint="@color/colorPrimary" />
+</RelativeLayout>
+
+
+<LinearLayout
+android:layout_width="0dp"
+android:layout_height="wrap_content"
+android:layout_weight="1"
+    android:layout_marginStart="8dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+
+<TextView
+android:id="@+id/userNameList"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Lam Son Binh"
+android:textColor="@color/black"
+android:textSize="18sp"
+android:textStyle="bold" />
+
+<TextView
+android:id="@+id/lastMessage"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:paddingTop="2dp"
+android:paddingBottom="2dp"
+android:text="Last message" />
+
+    </LinearLayout>
+
+
+<TextView
+android:id="@+id/messageTime"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:gravity="center_vertical"
+android:text="12/06/2024"
+android:textColor="@color/black"
+android:textSize="14sp" />
+
+    </LinearLayout>
