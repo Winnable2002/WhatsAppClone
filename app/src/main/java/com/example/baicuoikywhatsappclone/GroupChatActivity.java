@@ -107,6 +107,7 @@ public class GroupChatActivity extends AppCompatActivity {
         final String senderId = FirebaseAuth.getInstance().getUid();
         binding.userName.setText("Group Chat");
 
+
         final ChatAdapter adapter = new ChatAdapter(messageModels,this);
         binding.chatRecycleView.setAdapter(adapter);
 
@@ -114,29 +115,29 @@ public class GroupChatActivity extends AppCompatActivity {
         binding.chatRecycleView.setLayoutManager(layoutManager);
 
         database.getReference().child("Group Chat")
-                        .addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                messageModels.clear();
-                                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                                    MessageModel model = dataSnapshot.getValue(MessageModel.class);
-                                    messageModels.add(model);
-                                }
-                                adapter.notifyDataSetChanged();
-                            }
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        messageModels.clear();
+                        for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                            MessageModel model = dataSnapshot.getValue(MessageModel.class);
+                            messageModels.add(model);
+                        }
+                        adapter.notifyDataSetChanged();
+                    }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+                    }
+                });
 
         binding.send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String message = binding.enterMessage.getText().toString();
                 final  MessageModel model = new MessageModel(senderId,message);
-                model.setTimestam(new Date().getTime());
+                model.setTimestamp(new Date().getTime());
 
                 binding.enterMessage.setText("");
                 database.getReference().child("Group Chat")

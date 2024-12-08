@@ -15,12 +15,12 @@
           <targets>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="Default" identifier="serial=emulator-5556;connection=2eb01688" />
+                <DeviceId pluginId="Default" identifier="serial=emulator-5556;connection=8df26ef6" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="Default" identifier="serial=emulator-5554;connection=37e73a60" />
+                <DeviceId pluginId="Default" identifier="serial=emulator-5554;connection=d15bb115" />
               </handle>
             </Target>
           </targets>
